@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسبحة يوم عرفة الرقمية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b1510;
+            --primary-green: #00e676;
+            --text-glow: rgba(0, 230, 118, 0.4);
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #12251b 0%, var(--bg-color) 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* الشريط العلوي للتحكم */
+        .top-bar {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon:active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0.9);
+        }
+
+        /* حاوية الذكر */
+        .dhikr-container {
+            text-align: center;
+            max-width: 450px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .dhikr-title {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px var(--text-glow);
+        }
+
+        .dhikr-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .dhikr-target {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #888;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* منطقة العداد الرئيسية (قابلة للضغط) */
+        .counter-area {
+            flex: 1;
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .counter-number {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-shadow: 0 0 30px var(--text-glow), 0 0 60px rgba(0, 230, 118, 0.2);
+            transition: transform 0.05s ease;
+        }
+
+        .counter-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* الشريط السفلي المتتالي */
+        .streak-bar {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .streak-fire {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* تأثيرات حركية */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .scale-up {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button class="btn-icon" id="resetBtn" title="إعادة ضبط">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        </button>
+        <div style="color: #666; font-size: 0.9rem;">مسبحة ذكية</div>
+        <button class="btn-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </div>
+
+    <div class="dhikr-container">
+        <div class="dhikr-title">استغفار يوم عرفة</div>
+        <div class="dhikr-text">سُبْحَانَ اللهِ وَبِحَمْدِهِ، سُبْحَانَ اللهِ الْعَظِيمِ</div>
+        <div class="dhikr-target">(100 مرة)</div>
+    </div>
+
+    <div class="counter-area" id="clickArea">
+        <div class="counter-number" id="counterDisplay">0</div>
+        <div class="counter-label">اضغط للعد</div>
+    </div>
+
+    <div class="streak-bar">
+         1 يوم متتالي <span class="streak-fire">🔥</span>
+    </div>
+
+    <script>
+        // عناصر واجهة المستخدم
+        const clickArea = document.getElementById('clickArea');
+        const counterDisplay = document.getElementById('counterDisplay');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // استرجاع القيمة المخزنة سابقاً أو البدء من الصفر
+        let count = parseInt(localStorage.getItem('tasbeehCount')) || 0;
+        counterDisplay.textContent = count;
+
+        // دالة العد عند الضغط
+        function incrementCounter() {
+            count++;
+            counterDisplay.textContent = count;
+            localStorage.setItem('tasbeehCount', count);
+
+            // تأثير اهتزاز خفيف البصري (Scale) للرقم لجعل الضغط تفاعلياً
+            counterDisplay.classList.add('scale-up');
+            setTimeout(() => {
+                counterDisplay.classList.remove('scale-up');
+            }, 50);
+
+            // تفعيل اهتزاز الهاتف الحقيقي إذا كان مدعوماً من الجهاز
+            if (navigator.vibrate) {
+                navigator.vibrate(15); 
+            }
+        }
+
+        // دالة إعادة التصفير
+        function resetCounter(e) {
+            e.stopPropagation(); // منع انتقال الضغطة لمنطقة العد
+            if(confirm("هل تريد إعادة تصفير العداد؟")) {
+                count = 0;
+                counterDisplay.textContent = count;
+                localStorage.setItem('tasbeehCount', count);
+            }
+        }
+
+        // الاستماع للأحداث (يدعم اللمس على الهواتف والضغط بالماوس)
+        clickArea.addEventListener('click', incrementCounter);
+        resetBtn.addEventListener('click', resetCounter);
+    </script>
+</body>
+</html>
